@@ -1,0 +1,56 @@
+﻿using Pizza.Express.Context.Interfaces;
+using Pizza.Express.Shared.Entities;
+using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace Pizza.Express.Context
+{
+    public class Globals: IGlobals
+    {
+        #region CONSTRUCTOR
+        private readonly IHttpContextAccessor httpAccess;
+        private readonly SqlContext sqlContext;
+        public Globals(IHttpContextAccessor _httpAccess,
+                        SqlContext sqlRepo)
+        {
+            this.httpAccess = _httpAccess;
+            this.sqlContext = sqlRepo;
+        }
+        #endregion
+
+        #region GET
+        public async Task<UserEntity> GetCurrentUser()
+        {
+            return await sqlContext.User.Where(u => u.UserName == this.httpAccess.HttpContext.User.Identity.Name)
+                .Join(sqlContext.UserRole,
+                    u => u.UserId,
+                    ur => ur.UserRoleId,
+                    (u, ur) => new UserEntity
+                    {
+                        UserId = u.UserId,
+                        UserName = u.UserName,
+                        UserRoleId = ur.UserRoleId,
+                        UserRoleName = ur.RoleName,
+                        IsAuthenticated = this.httpAccess.HttpContext.User.Identity.IsAuthenticated
+                    }
+                ).FirstOrDefaultAsync();
+        }
+
+        public async Task<int> GetUserId()
+        {
+            UserEntity user = await this.GetCurrentUser();
+            return user.UserId;
+        }
+        #endregion
+
+        #region PUT
+
+        #endregion
+
+        #region POST
+
+        #endregion
+    }
+}
