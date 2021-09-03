@@ -4,4 +4,9 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Pizza.Express.Context\Pizza.Express.Context.csproj" />
+    <ProjectReference Include="..\Pizza.Express.Shared\Pizza.Express.Shared.csproj" />
+  </ItemGroup>
+
 </Project>
