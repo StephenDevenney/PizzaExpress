@@ -1,0 +1,87 @@
+*.dbmdl
+*.jfm
+appsettings.Development.json
+
+# From .NET Core 3.0 you can use the command: `dotnet new gitignore` to generate a customizable .gitignore file
+
+*.swp
+*.*~
+project.lock.json
+.DS_Store
+*.pyc
+
+# Visual Studio Code
+.vscode
+
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+build/
+bld/
+[Bb]in/
+[Oo]bj/
+msbuild.log
+msbuild.err
+msbuild.wrn
+
+# Visual Studio 2015
+.vs/
+
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# compiled output
+/pizza-ui/dist
+/pizza-ui/tmp
+/pizza-ui/out-tsc
+# Only exists if Bazel was run
+/pizza-ui/bazel-out
+
+# dependencies
+/pizza-ui/node_modules
+
+# profiling files
+/pizza-ui/chrome-profiler-events*.json
+
+# IDEs and editors
+/pizza-ui/.idea
+/pizza-ui/.project
+/pizza-ui/.classpath
+/pizza-ui/.c9/
+/pizza-ui/*.launch
+/pizza-ui/.settings/
+/pizza-ui/*.sublime-workspace
+
+# IDE - VSCode
+/pizza-ui/.vscode/*
+/pizza-ui/!.vscode/settings.json
+/pizza-ui/!.vscode/tasks.json
+/pizza-ui/!.vscode/launch.json
+/pizza-ui/!.vscode/extensions.json
+/pizza-ui/.history/*
+
+# misc
+/pizza-ui/.sass-cache
+/pizza-ui/connect.lock
+/pizza-ui/coverage
+/pizza-ui/libpeerconnection.log
+/pizza-ui/npm-debug.log
+/pizza-ui/yarn-error.log
+/pizza-ui/testem.log
+/pizza-ui/typings
+
+# System Files
+.DS_Store
+Thumbs.db
+.gitattributes
+
+
