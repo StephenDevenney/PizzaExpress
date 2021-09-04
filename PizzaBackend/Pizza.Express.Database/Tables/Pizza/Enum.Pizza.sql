@@ -1,0 +1,7 @@
+﻿CREATE TABLE [enum.pizza].[Pizza]
+(
+	[PizzaId] INT IDENTITY(1,1) PRIMARY KEY,
+	[Name] NVARCHAR(50) NOT NULL,
+	[Description] NVARCHAR(100) NOT NULL,
+	[Price] DECIMAL(10,2) NOT NULL
+)
