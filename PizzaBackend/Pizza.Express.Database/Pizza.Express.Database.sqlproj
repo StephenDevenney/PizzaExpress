@@ -60,21 +60,19 @@
     <Folder Include="Scripts" />
     <Folder Include="Tables" />
     <Folder Include="Tables\Security" />
-    <Folder Include="Tables\Enum.Security" />
     <Folder Include="Tables\Pizza" />
-    <Folder Include="Tables\Enum.Pizza" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Schemas\security.sql" />
     <Build Include="Tables\Security\Client.sql" />
-    <Build Include="Tables\Enum.Security\ClientRole.sql" />
-    <Build Include="Tables\Enum.Security\AppIdleSecs.sql" />
     <Build Include="Schemas\enum.security.sql" />
     <Build Include="Tables\Pizza\Order.sql" />
     <Build Include="Schemas\pizza.sql" />
     <Build Include="Schemas\enum.pizza.sql" />
     <Build Include="Tables\Pizza\OrderedPizza.sql" />
-    <Build Include="Tables\Enum.Pizza\Status.sql" />
+    <Build Include="Tables\Pizza\Enum.Status.sql" />
+    <Build Include="Tables\Security\Enum.AppIdleSecs.sql" />
+    <Build Include="Tables\Security\Enum.ClientRole.sql" />
   </ItemGroup>
   <ItemGroup>
     <PreDeploy Include="Scripts\Script.PreDeployment.sql" />
