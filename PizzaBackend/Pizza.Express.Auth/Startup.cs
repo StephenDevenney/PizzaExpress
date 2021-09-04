@@ -60,7 +60,7 @@ namespace Pizza.Express.Auth
             services.AddAuthorization(options =>
             {
                 options.AddPolicy("Admin", policy => policy.RequireRole("Admin"));
-                options.AddPolicy("User", policy => policy.RequireRole("User"));
+                options.AddPolicy("Client", policy => policy.RequireRole("Client"));
             });
             #endregion
 
