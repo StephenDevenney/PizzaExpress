@@ -5,15 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.18" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Pizza.Express.Context\Pizza.Express.Context.csproj" />
+    <ProjectReference Include="..\Pizza.Express.Handler\Pizza.Express.Handler.csproj" />
     <ProjectReference Include="..\Pizza.Express.Shared\Pizza.Express.Shared.csproj" />
   </ItemGroup>
 
