@@ -32,14 +32,14 @@ namespace Pizza.Express.Context
         #region ENUM
         private void DBUserRole(EntityTypeBuilder<ClientRoleEntity> _)
         {
-            _.ToTable("ClientRole", "enum");
+            _.ToTable("ClientRole", "enum.security");
             _.HasKey(x => x.ClientRoleId);
             _.Property<int>(x => x.ClientRoleId).HasColumnName("ClientRoleId");
             _.Property<string>(x => x.RoleName).HasColumnName("RoleName");
         }
         private void DBNavMenu(EntityTypeBuilder<NavMenuEntity> _)
         {
-            _.ToTable("NavMenu", "enum");
+            _.ToTable("NavMenu", "enum.security");
             _.HasKey(x => x.NavMenuId);
             _.Property<int>(x => x.NavMenuId).HasColumnName("NavMenuId");
             _.Property<string>(x => x.NavMenuName).HasColumnName("NavMenuName");

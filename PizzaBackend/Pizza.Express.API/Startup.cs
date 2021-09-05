@@ -68,7 +68,7 @@ namespace Pizza.Express.API
             // EfCore
             services.AddDbContextPool<SqlContext>(options =>
             {
-                options.UseSqlite(Configuration.GetConnectionString("AppDB"));
+                options.UseSqlServer(Configuration.GetConnectionString("AppDB"));
             });
             #endregion
 
