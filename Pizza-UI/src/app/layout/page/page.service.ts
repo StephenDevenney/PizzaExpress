@@ -8,4 +8,7 @@ export class PageService {
     constructor(private globals: Globals,
                 private http: HttpClient){}
 
+    public async getNavMenu(): Promise<any> {
+        return await this.http.get(this.globals.config.appApiUrl + "security/nav-menu").toPromise();
+    }
 }
