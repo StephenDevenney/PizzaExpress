@@ -19,7 +19,6 @@ import { ListboxModule } from 'primeng/listbox';
 import { InputTextModule } from 'primeng/inputtext';
 import { PageModule } from 'src/app/layout/page/page.module';
 import { PageComponent } from 'src/app/layout/page/page.component';
-import { DataViewModule } from 'primeng/dataview';
 
 @NgModule({
   imports: [
@@ -47,8 +46,7 @@ import { DataViewModule } from 'primeng/dataview';
     ButtonModule,
     TabViewModule,
     ListboxModule,
-    InputTextModule,
-    DataViewModule
+    InputTextModule
   ],
   providers: [
     Globals,
