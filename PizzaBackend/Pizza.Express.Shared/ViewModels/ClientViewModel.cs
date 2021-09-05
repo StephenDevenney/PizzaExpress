@@ -2,13 +2,13 @@
 
 namespace Pizza.Express.Shared.ViewModels
 {
-    public class UserViewModel
+    public class ClientViewModel
     {
         [Required]
-        public string UserName { get; set; }
+        public string ClientName { get; set; }
         public string Token { get; set; }
         [Required]
-        public UserRoleViewModel UserRole { get; set; }
+        public ClientRoleViewModel ClientRole { get; set; }
         public bool IsAuthenticated { get; set; }
     }
 }
