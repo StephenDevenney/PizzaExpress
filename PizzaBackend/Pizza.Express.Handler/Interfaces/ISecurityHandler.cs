@@ -8,6 +8,7 @@ namespace Pizza.Express.Handler.Interfaces
     {
         #region GET
         public Task<List<NavMenuViewModel>> GetNavMenu();
+        public Task<ClientViewModel> GetClient();
         #endregion
 
         #region PUT
