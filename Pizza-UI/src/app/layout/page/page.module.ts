@@ -6,10 +6,12 @@ import { FormsModule } from '@angular/forms';
 import { ToastModule } from 'primeng/toast';
 import { InputSwitchModule } from 'primeng/inputswitch';
 import { ButtonModule } from 'primeng/button';
+import { NavComponent } from './nav/nav.component';
 
 @NgModule({
   declarations: [
     PageComponent,
+    NavComponent
   ],
   imports: [
     CommonModule,
@@ -20,6 +22,7 @@ import { ButtonModule } from 'primeng/button';
   ],
   exports: [
     PageComponent,
+    NavComponent
   ],
   providers: [
     PageService

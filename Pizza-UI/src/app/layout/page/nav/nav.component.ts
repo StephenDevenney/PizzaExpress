@@ -5,13 +5,12 @@ import { NavPage } from 'src/app/shared/classes/nav.page';
 import { SharedService } from 'src/app/shared/services/shared.service';
 
 @Component({
-  selector: 'nav',
+  selector: 'nav-bar',
   templateUrl: './nav.component.html'
 })
 export class NavComponent extends BaseComponent implements OnInit {
   public navigationMenu: Array<NavPage> = new Array<NavPage>();
   public navLoaded: boolean = false;
-  public navToggle: boolean = false;
 
   constructor(private injector: Injector,
     private pageService: PageService,

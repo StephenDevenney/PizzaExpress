@@ -1,5 +1,6 @@
 <div class="page">
-    <div class="page-content" #pageContent>
+    <nav-bar *ngIf="globals.isSignedIn"></nav-bar>
+    <div class="w-100" #pageContent>
         <ng-content></ng-content>
     </div>
 </div>
