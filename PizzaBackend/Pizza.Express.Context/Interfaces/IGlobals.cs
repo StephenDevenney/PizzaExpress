@@ -6,8 +6,8 @@ namespace Pizza.Express.Context.Interfaces
     public interface IGlobals
     {
         #region GET
-        public Task<UserEntity> GetCurrentUser();
-        public Task<int> GetUserId();
+        public Task<ClientEntity> GetCurrentClient();
+        public Task<int> GetClientId();
         #endregion
 
         #region PUT

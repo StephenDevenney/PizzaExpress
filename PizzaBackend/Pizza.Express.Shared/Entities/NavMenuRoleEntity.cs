@@ -5,6 +5,6 @@ namespace Pizza.Express.Shared.Entities
     {
         public int NavMenuRoleId { get; set; }
         public int NavMenuId { get; set; }
-        public int UserRoleId { get; set; }
+        public int ClientRoleId { get; set; }
     }
 }

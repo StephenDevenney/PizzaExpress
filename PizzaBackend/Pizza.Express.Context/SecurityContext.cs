@@ -24,8 +24,8 @@ namespace Pizza.Express.Context
         #region GET
         public async Task<List<NavMenuViewModel>> GetNavMenu()
         {
-            UserEntity user = await this.globals.GetCurrentUser();
-            return await sqlContext.NavMenu.Join(sqlContext.NavMenuRole.Where(nmr => nmr.UserRoleId == user.UserRoleId),
+            ClientEntity client = await this.globals.GetCurrentClient();
+            return await sqlContext.NavMenu.Join(sqlContext.NavMenuRole.Where(nmr => nmr.ClientRoleId == client.ClientRoleId),
                 nm => nm.NavMenuId,
                 nmr => nmr.NavMenuId,
                 (nm, nmr) => new NavMenuViewModel

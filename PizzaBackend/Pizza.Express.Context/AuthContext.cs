@@ -27,25 +27,25 @@ namespace Pizza.Express.Context
         #endregion
 
         #region GET
-        public async Task<UserViewModel> Authenticate(string username)
+        public async Task<ClientViewModel> Authenticate(string clientname)
         {
             /* 
              * App doesn't require password protection but validation would happen here in a production application.
             */
 
-            UserViewModel user = await sqlContext.User.Where(u => u.UserName == username)
-                .Join(sqlContext.UserRole,
-                    u => u.UserId,
-                    ur => ur.UserRoleId,
-                    (u, ur) => new UserViewModel
+            ClientViewModel client = await sqlContext.Client.Where(u => u.ClientName == clientname)
+                .Join(sqlContext.ClientRole,
+                    c => c.ClientId,
+                    cr => cr.ClientRoleId,
+                    (c, cr) => new ClientViewModel
                     {
-                        UserName = u.UserName,
-                        UserRole = new UserRoleViewModel { UserRoleId = ur.UserRoleId, UserRoleName = ur.RoleName }
+                        ClientName = c.ClientName,
+                        ClientRole = new ClientRoleViewModel { ClientRoleId = cr.ClientRoleId, ClientRoleName = cr.RoleName }
                     }
                 ).FirstOrDefaultAsync();
 
-            // return null if user not found
-            if (user == null)
+            // return null if client not found
+            if (client == null)
                 return null;
 
             // Generate jwt token
@@ -55,43 +55,43 @@ namespace Pizza.Express.Context
             {
                 Subject = new ClaimsIdentity(new Claim[]
                 {
-                    new Claim(ClaimTypes.Name, user.UserName),
-                    new Claim(ClaimTypes.Role, user.UserRole.UserRoleName)
+                    new Claim(ClaimTypes.Name, client.ClientName),
+                    new Claim(ClaimTypes.Role, client.ClientRole.ClientRoleName)
                 }),
                 Expires = DateTime.UtcNow.AddDays(7),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
             };
             var token = tokenHandler.CreateToken(tokenDescriptor);
-            user.Token = tokenHandler.WriteToken(token);
-            user.IsAuthenticated = true;
+            client.Token = tokenHandler.WriteToken(token);
+            client.IsAuthenticated = true;
 
-            return user;
+            return client;
         }
 
-        public async Task<List<UserViewModel>> GetAllUsers()
+        public async Task<List<ClientViewModel>> GetAllClients()
         {
-            return await sqlContext.User.Join(
-                sqlContext.UserRole,
-                u => u.UserId,
-                ur => ur.UserRoleId,
-                (u, ur) => new UserViewModel
+            return await sqlContext.Client.Join(
+                sqlContext.ClientRole,
+                c => c.ClientId,
+                cr => cr.ClientRoleId,
+                (c, cr) => new ClientViewModel
                 {
-                    UserName = u.UserName,
-                    UserRole = new UserRoleViewModel { UserRoleId = ur.UserRoleId, UserRoleName = ur.RoleName }
+                    ClientName = c.ClientName,
+                    ClientRole = new ClientRoleViewModel { ClientRoleId = cr.ClientRoleId, ClientRoleName = cr.RoleName }
                 }
             ).ToListAsync();
         }
 
-        public async Task<UserViewModel> GetUserById(int userId)
+        public async Task<ClientViewModel> GetClientById(int clientId)
         {
-            return await sqlContext.User.Where(u => u.UserId == userId)
-                .Join(sqlContext.UserRole,
-                    u => u.UserId,
-                    ur => ur.UserRoleId,
-                    (u, ur) => new UserViewModel
+            return await sqlContext.Client.Where(c => c.ClientId == clientId)
+                .Join(sqlContext.ClientRole,
+                    c => c.ClientId,
+                    cr => cr.ClientRoleId,
+                    (c, cr) => new ClientViewModel
                     {
-                        UserName = u.UserName,
-                        UserRole = new UserRoleViewModel { UserRoleId = ur.UserRoleId, UserRoleName = ur.RoleName }
+                        ClientName = c.ClientName,
+                        ClientRole = new ClientRoleViewModel { ClientRoleId = cr.ClientRoleId, ClientRoleName = cr.RoleName }
                     }
                 ).FirstOrDefaultAsync();
         }

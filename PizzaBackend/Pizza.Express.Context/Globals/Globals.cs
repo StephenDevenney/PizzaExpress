@@ -21,27 +21,27 @@ namespace Pizza.Express.Context
         #endregion
 
         #region GET
-        public async Task<UserEntity> GetCurrentUser()
+        public async Task<ClientEntity> GetCurrentClient()
         {
-            return await sqlContext.User.Where(u => u.UserName == this.httpAccess.HttpContext.User.Identity.Name)
-                .Join(sqlContext.UserRole,
-                    u => u.UserId,
-                    ur => ur.UserRoleId,
-                    (u, ur) => new UserEntity
+            return await sqlContext.Client.Where(u => u.ClientName == this.httpAccess.HttpContext.User.Identity.Name)
+                .Join(sqlContext.ClientRole,
+                    c => c.ClientId,
+                    cr => cr.ClientRoleId,
+                    (c, cr) => new ClientEntity
                     {
-                        UserId = u.UserId,
-                        UserName = u.UserName,
-                        UserRoleId = ur.UserRoleId,
-                        UserRoleName = ur.RoleName,
+                        ClientId = c.ClientId,
+                        ClientName = c.ClientName,
+                        ClientRoleId = cr.ClientRoleId,
+                        ClientRoleName = cr.RoleName,
                         IsAuthenticated = this.httpAccess.HttpContext.User.Identity.IsAuthenticated
                     }
                 ).FirstOrDefaultAsync();
         }
 
-        public async Task<int> GetUserId()
+        public async Task<int> GetClientId()
         {
-            UserEntity user = await this.GetCurrentUser();
-            return user.UserId;
+            ClientEntity client = await this.GetCurrentClient();
+            return client.ClientId;
         }
         #endregion
 

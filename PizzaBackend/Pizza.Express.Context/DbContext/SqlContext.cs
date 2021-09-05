@@ -63,7 +63,7 @@ namespace Pizza.Express.Context
             _.HasKey(x => x.NavMenuRoleId);
             _.Property<int>(x => x.NavMenuRoleId).HasColumnName("NavMenuRoleId");
             _.Property<int>(x => x.NavMenuId).HasColumnName("FK_NavMenuId");
-            _.Property<int>(x => x.UserRoleId).HasColumnName("FK_UserRoleId");
+            _.Property<int>(x => x.ClientRoleId).HasColumnName("FK_ClientRoleId");
         }
         #endregion
     }

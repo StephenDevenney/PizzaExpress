@@ -7,9 +7,9 @@ namespace Pizza.Express.Handler.Interfaces
     public interface IAuthHandler
     {
         #region GET
-        public Task<UserViewModel> Authenticate(string username);
-        public Task<List<UserViewModel>> GetAllUsers();
-        public Task<UserViewModel> GetUserById(int userId);
+        public Task<ClientViewModel> Authenticate(string clientName);
+        public Task<List<ClientViewModel>> GetAllClients();
+        public Task<ClientViewModel> GetClientById(int userId);
         #endregion
 
         #region PUT

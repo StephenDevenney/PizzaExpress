@@ -17,11 +17,11 @@ namespace Pizza.Express.Handler
         #endregion
 
         #region GET
-        public async Task<UserViewModel> Authenticate(string username) => await authRepo.Authenticate(username);
+        public async Task<ClientViewModel> Authenticate(string clientName) => await authRepo.Authenticate(clientName);
 
-        public async Task<List<UserViewModel>> GetAllUsers() => await authRepo.GetAllUsers();
+        public async Task<List<ClientViewModel>> GetAllClients() => await authRepo.GetAllClients();
 
-        public async Task<UserViewModel> GetUserById(int userId) => await authRepo.GetUserById(userId);
+        public async Task<ClientViewModel> GetClientById(int clientId) => await authRepo.GetClientById(clientId);
         #endregion
 
         #region PUT

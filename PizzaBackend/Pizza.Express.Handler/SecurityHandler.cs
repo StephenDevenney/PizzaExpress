@@ -24,7 +24,7 @@ namespace Pizza.Express.Handler
         public async Task<List<NavMenuViewModel>> GetNavMenu() => await securityRepo.GetNavMenu();
         public async Task<ClientViewModel> GetClient()
         {
-            ClientEntity client = await this.globals.GetCurrentUser();
+            ClientEntity client = await this.globals.GetCurrentClient();
             return new ClientViewModel
             {
                 ClientName = client.ClientName,

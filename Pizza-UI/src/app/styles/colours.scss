@@ -1,10 +1,13 @@
 /*
-    # Colours
+    # Variables
+        ## Colours
+        ## General
     # Styling
         ## Body
 */
 
-// # Colours
+// # Variables
+// ## Colours
 $green-1: #037455;
 $green-2: #009775;
 $green-3: #77A78C;
@@ -29,6 +32,11 @@ $blue-4: #66b3ff;
 $blue-5: #99ccff;
 $blue-6: #cce6ff;
 $blue-7: #e6f2ff;
+
+// ## General
+$side-nav-w: calc(10vw + 1rem);
+$transition-250: 250ms;
+$transition-150: 150ms;
 
 // # Styling
 .app-container {

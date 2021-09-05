@@ -21,12 +21,12 @@ namespace Pizza.Express.Auth.Controllers
 
         #region GET
         [Authorize(Roles = SecureRole.Admin)]
-        [HttpGet("all-users")]
-        public async Task<List<UserViewModel>> GetAllUsers() => await authHandler.GetAllUsers();
+        [HttpGet("all-clients")]
+        public async Task<List<ClientViewModel>> GetAllUsers() => await authHandler.GetAllClients();
 
         [AllowAnonymous]
-        [HttpGet("authenticate/{userName}")]
-        public async Task<UserViewModel> Authenticate(string userName) => await authHandler.Authenticate(userName);
+        [HttpGet("authenticate/{clientName}")]
+        public async Task<ClientViewModel> Authenticate(string clientName) => await authHandler.Authenticate(clientName);
         #endregion
 
         #region PUT

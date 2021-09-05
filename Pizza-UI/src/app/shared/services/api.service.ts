@@ -26,7 +26,7 @@ export class APIService {
                                 return this.globals;
                             }
                             else
-                                return await this.http.get(this.globals.config.appApiUrl + "security/client-settings").pipe(map(r => r)).toPromise();     
+                                return await this.http.get(this.globals.config.appApiUrl + "security/client").pipe(map(r => r)).toPromise();     
                         })).toPromise().catch((err: any) => {
                              this.globals.seriousErrorMessage = err;
                         }).then((res: any) => {
