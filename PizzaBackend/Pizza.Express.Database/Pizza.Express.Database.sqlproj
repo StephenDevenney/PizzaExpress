@@ -71,8 +71,8 @@
     <Build Include="Schemas\enum.pizza.sql" />
     <Build Include="Tables\Pizza\OrderedPizza.sql" />
     <Build Include="Tables\Pizza\Enum.Status.sql" />
-    <Build Include="Tables\Security\Enum.AppIdleSecs.sql" />
     <Build Include="Tables\Security\Enum.ClientRole.sql" />
+    <Build Include="Tables\Pizza\Enum.Pizza.sql" />
   </ItemGroup>
   <ItemGroup>
     <PreDeploy Include="Scripts\Script.PreDeployment.sql" />
