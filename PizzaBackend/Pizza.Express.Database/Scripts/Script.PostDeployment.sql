@@ -13,7 +13,7 @@ INSERT INTO [enum.security].[NavMenu] ([NavMenuName], [NavMenuTitle], [NavMenuRo
 VALUES (N'Dashboard', N'View Current Order', N'dashboard'),
 (N'Pizza', N'View Pizzas', N'pizza'),
 (N'Basket', N'View Current Order', N'basket'),
-(N'Admin', N'Manage Orders', N'admin')
+(N'Orders', N'Manage Orders', N'orders')
 
 -- Enum.Pizza
 INSERT INTO [enum.pizza].[Status] ([Description])
