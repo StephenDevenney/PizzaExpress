@@ -4,6 +4,7 @@
         ## General
     # Styling
         ## Body
+        ## Nav Body
 */
 
 // # Variables
@@ -35,12 +36,24 @@ $blue-7: #e6f2ff;
 
 // ## General
 $side-nav-w: calc(10vw + 1rem);
-$transition-250: 250ms;
-$transition-150: 150ms;
+$header-h: 6.5rem;
+$heading-h: 3.4rem;
 
 // # Styling
+
+// ## Body
 .app-container {
-    // ## Body
     background-color: $grey-6;
     color: $grey-2;
+}
+
+// ## Nav Body
+.side-nav-container {
+    background-color: $blue-2;
+    .btn {
+        color: $grey-6;
+    }  
+    .nav .ng-star-inserted:hover {
+        background-color: $blue-4;
+    }
 }

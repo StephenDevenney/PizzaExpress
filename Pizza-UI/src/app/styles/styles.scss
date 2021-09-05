@@ -5,11 +5,19 @@
 
 /*
     # Page Setup
+        ## Page
         ## Containers
         ## Navigation
 */
 
 // # Page Setup
+
+// ## Page
+.page {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+}
 
 // ## Containers
 .app-container {
@@ -33,49 +41,11 @@
 // ## Navigation
 .side-nav-container {
     height: 100%;
-    transition: max-width $transition-250 ease-out;
 
     .top-section {
         .logo-container {
             left: 0;
             position: relative;
-            transition: left $transition-250 ease-in-out;
-        }
-
-        .btn {
-            left: 0;
-            position: relative;
-            transition: left $transition-250 ease-in-out;
-
-            .svg-hideable {
-                transition: opacity $transition-250 ease-in-out;
-            }
-            path {
-                transition: transform $transition-250 ease-in-out;
-            }
-        }
-    }
-
-    &.collapsed {
-        max-width: 3rem;
-
-        .top-section {
-            .logo-container {
-                left: -$side-nav-w;
-            }
-
-            .btn {
-                left: -12rem;
-                width: 3rem;
-
-                .svg-hideable {
-                    opacity: 0;
-                }
-
-                path {
-                    transform: translateX(-5px);
-                }
-            }
         }
     }
 }

@@ -4,6 +4,7 @@ import { map, switchMap } from 'rxjs/operators';
 import { Globals } from '../classes/globals';
 import { Config } from '../classes/config';
 import { AuthService } from './auth.service';
+import { Client } from '../classes/client';
 
 @Injectable()
 export class APIService {
@@ -31,11 +32,11 @@ export class APIService {
                              this.globals.seriousErrorMessage = err;
                         }).then((res: any) => {
                             if(this.globals.seriousErrorMessage == "") {
-                                if(res.client.isAuthenticated) {
+                                if(res.isAuthenticated) {
                                     this.globals.isSignedIn = true;
-                                    this.globals.client.clientName = res.client.clientName;
-                                    this.globals.client.clientRole = res.client.clientRole;
-                                    this.globals.client.isAuthenticated = res.client.isAuthenticated;
+                                    this.globals.client.clientName = res.clientName;
+                                    this.globals.client.clientRole = res.clientRole;
+                                    this.globals.client.isAuthenticated = res.isAuthenticated;
                                 }
                                 else
                                     this.authService.signOut();
