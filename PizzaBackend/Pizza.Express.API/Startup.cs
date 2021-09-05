@@ -8,6 +8,8 @@ using System.Text;
 using Pizza.Express.Context;
 using Pizza.Express.Context.Interfaces;
 using Pizza.Express.Shared.Security;
+using Pizza.Express.Handler.Interfaces;
+using Pizza.Express.Handler;
 
 namespace Pizza.Express.API
 {
@@ -74,6 +76,8 @@ namespace Pizza.Express.API
             // Services & Context
             services.AddScoped<IGlobals, Globals>();
             services.AddHttpContextAccessor();
+            services.AddScoped<ISecurityHandler, SecurityHandler>();
+            services.AddScoped<ISecurityContext, SecurityContext>();
             #endregion
 
             #region CORS
