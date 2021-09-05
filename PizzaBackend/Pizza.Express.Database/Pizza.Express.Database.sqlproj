@@ -73,6 +73,8 @@
     <Build Include="Tables\Pizza\Enum.Status.sql" />
     <Build Include="Tables\Security\Enum.ClientRole.sql" />
     <Build Include="Tables\Pizza\Enum.Pizza.sql" />
+    <Build Include="Tables\Security\Enum.NavMenu.sql" />
+    <Build Include="Tables\Security\NavMenuRole.sql" />
   </ItemGroup>
   <ItemGroup>
     <PreDeploy Include="Scripts\Script.PreDeployment.sql" />
