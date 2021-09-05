@@ -1,21 +1,25 @@
 <page *ngIf="isLoaded">
-   <div class="card">
-      <p-dataView #dv [value]="pizzaData" [paginator]="true" [rows]="9" filterBy="name" layout="grid">
-          <ng-template let-product pTemplate="gridItem">
-              <div class="p-col-12 p-md-4">
-                  <div class="product-grid-item card">
-                      <div class="product-grid-item-content">
-                          <img [src]="product.imageLink"/>
-                          <div class="product-name">{{product.name}}</div>
-                          <div class="product-description">{{product.description}}</div>
-                      </div>
-                      <div class="product-grid-item-bottom">
-                          <span class="product-price">${{product.price}}</span>
-                          <p-button icon="pi pi-shopping-cart"></p-button>
-                      </div>
+   <div class="card-container transparent-border mt-2 mb-2">
+      <p-dataView #dv [value]="pizzaData" [rows]="9" filterBy="name" layout="grid">
+         <ng-template let-pizza pTemplate="gridItem">
+            <div class="p-col-12 p-md-4">
+               <div class="card">
+                  <div class="d-flex align-items-center justify-content-center p-2">
+                     <img title="{{pizza.description}}" [src]="pizza.imageLink" style="height: 12rem"/>
                   </div>
-              </div>
-          </ng-template>
+                  <div class="d-flex align-items-center justify-content-center p-2">
+                     <label><b>{{pizza.name}}</b></label>
+                  </div>
+                  <div class="d-flex align-items-center justify-content-center p-2">
+                     <label class="text-truncate" style="max-width: 16rem;">{{pizza.description}}</label>
+                  </div>
+                  <div class="d-flex align-items-center justify-content-between m-2">
+                     <label>€{{pizza.price}}</label>
+                     <p-button icon="pi pi-shopping-cart"></p-button>
+                  </div>
+               </div>
+            </div>
+         </ng-template>
       </p-dataView>
   </div>
 </page>

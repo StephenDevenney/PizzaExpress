@@ -17,8 +17,8 @@ export class PizzaComponent extends BaseComponent implements OnInit {
     super(injector);
   }
 
-  ngOnInit(): void {
-    this.isLoaded = true;
+  async ngOnInit(): Promise<void> {
+    await this.loadPizza();
   }
 
   async loadPizza() {
@@ -28,6 +28,7 @@ export class PizzaComponent extends BaseComponent implements OnInit {
     }).then(async (res: Array<Pizza>) => {
       this.pizzaData = res;
       this.loader.stop();
+      this.isLoaded = true;
     });
   }
 }

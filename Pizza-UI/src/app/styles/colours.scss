@@ -5,6 +5,8 @@
     # Styling
         ## Body
         ## Nav Body
+    # Overrides
+        ## Data View Cards
 */
 
 // # Variables
@@ -56,4 +58,13 @@ $heading-h: 3.4rem;
     .nav .ng-star-inserted:hover {
         background-color: $blue-4;
     }
+}
+
+// # Overrides
+// ## Data View Cards
+.card-container {
+    background-color: $grey-6 !important;
+}
+.p-dataview-content {
+    background-color: $grey-6 !important;
 }
