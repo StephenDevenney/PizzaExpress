@@ -65,7 +65,6 @@ namespace Pizza.Express.API
             #endregion
 
             #region EFCORE
-            // EfCore
             services.AddDbContextPool<SqlContext>(options =>
             {
                 options.UseSqlServer(Configuration.GetConnectionString("AppDB"));
@@ -78,6 +77,8 @@ namespace Pizza.Express.API
             services.AddHttpContextAccessor();
             services.AddScoped<ISecurityHandler, SecurityHandler>();
             services.AddScoped<ISecurityContext, SecurityContext>();
+            services.AddScoped<IProductHandler, ProductHandler>();
+            services.AddScoped<IProductContext, ProductContext>();
             #endregion
 
             #region CORS
