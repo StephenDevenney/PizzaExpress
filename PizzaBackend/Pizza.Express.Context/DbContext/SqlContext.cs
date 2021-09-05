@@ -12,8 +12,8 @@ namespace Pizza.Express.Context
         #endregion
 
         #region DBSET
-        public DbSet<UserEntity> User { get; set; }
-        public DbSet<UserRoleEntity> UserRole { get; set; }
+        public DbSet<ClientEntity> Client { get; set; }
+        public DbSet<ClientRoleEntity> ClientRole { get; set; }
         public DbSet<NavMenuEntity> NavMenu { get; set; }
         public DbSet<NavMenuRoleEntity> NavMenuRole { get; set; }
         #endregion
@@ -21,8 +21,8 @@ namespace Pizza.Express.Context
         #region MODELBUILDER
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<UserEntity>(DBUser);
-            modelBuilder.Entity<UserRoleEntity>(DBUserRole);
+            modelBuilder.Entity<ClientEntity>(DBUser);
+            modelBuilder.Entity<ClientRoleEntity>(DBUserRole);
             modelBuilder.Entity<NavMenuEntity>(DBNavMenu);
             modelBuilder.Entity<NavMenuRoleEntity>(DBNavMenuRole);
             base.OnModelCreating(modelBuilder);
@@ -30,11 +30,11 @@ namespace Pizza.Express.Context
         #endregion
 
         #region ENUM
-        private void DBUserRole(EntityTypeBuilder<UserRoleEntity> _)
+        private void DBUserRole(EntityTypeBuilder<ClientRoleEntity> _)
         {
-            _.ToTable("UserRole", "enum");
-            _.HasKey(x => x.UserRoleId);
-            _.Property<int>(x => x.UserRoleId).HasColumnName("UserRoleId");
+            _.ToTable("ClientRole", "enum");
+            _.HasKey(x => x.ClientRoleId);
+            _.Property<int>(x => x.ClientRoleId).HasColumnName("ClientRoleId");
             _.Property<string>(x => x.RoleName).HasColumnName("RoleName");
         }
         private void DBNavMenu(EntityTypeBuilder<NavMenuEntity> _)
@@ -49,13 +49,13 @@ namespace Pizza.Express.Context
         #endregion
 
         #region SECURITY
-        private void DBUser(EntityTypeBuilder<UserEntity> _)
+        private void DBUser(EntityTypeBuilder<ClientEntity> _)
         {
-            _.ToTable("User", "security");
-            _.HasKey(x => x.UserId);
-            _.Property<int>(x => x.UserId).HasColumnName("UserId");
-            _.Property<int>(x => x.UserRoleId).HasColumnName("FK_UserRoleId");
-            _.Property<string>(x => x.UserName).HasColumnName("UserName");
+            _.ToTable("Client", "security");
+            _.HasKey(x => x.ClientId);
+            _.Property<int>(x => x.ClientId).HasColumnName("ClientId");
+            _.Property<int>(x => x.ClientRoleId).HasColumnName("FK_ClientRoleId");
+            _.Property<string>(x => x.ClientName).HasColumnName("ClientName");
         }
         private void DBNavMenuRole(EntityTypeBuilder<NavMenuRoleEntity> _)
         {

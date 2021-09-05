@@ -23,6 +23,9 @@ namespace Pizza.Express.API.Controllers
         [Authorize(Roles = SecureRole.Admin + "," + SecureRole.User)]
         [HttpGet("nav-menu")]
         public async Task<List<NavMenuViewModel>> GetNavMenu() => await securityHandler.GetNavMenu();
+        [Authorize(Roles = SecureRole.Admin + "," + SecureRole.User)]
+        [HttpGet("client")]
+        public async Task<ClientViewModel> GetClient() => await securityHandler.GetClient();
         #endregion
 
         #region PUT 

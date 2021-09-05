@@ -11,7 +11,7 @@ import { SharedService } from './shared/services/shared.service';
   templateUrl: './app.component.html'
 })
 export class AppComponent implements OnInit {
-  public title = 'Library Tracker';
+  public title = 'Pizza Express';
   public isLoaded = false;
 
   constructor(private apiService: APIService,
