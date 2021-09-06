@@ -5,6 +5,7 @@ import { Globals } from './shared/classes/globals';
 import { APIService } from './shared/services/api.service';
 import { AuthService } from './shared/services/auth.service';
 import { SharedService } from './shared/services/shared.service';
+import { PrimeNGConfig } from 'primeng/api';
 
 @Component({
   selector: 'app-root',
@@ -19,21 +20,23 @@ export class AppComponent implements OnInit {
               private sharedService: SharedService,
               private authService: AuthService,
               private route: ActivatedRoute,
-              private titleService: Title) {}
+              private titleService: Title,
+              private primengConfig: PrimeNGConfig) {}
 
     async ngOnInit(): Promise<void> {
       await this.loadApplication();
+      this.primengConfig.ripple = true;
     }
 
     public async loadApplication(): Promise<void> {
       this.titleService.setTitle(this.title);
       await this.apiService.loadApplication().then(async () => {
-        this.isLoaded = true;
         if(this.globals.isSignedIn) {
           await this.setRoute();
           await this.sharedService.navToPage(this.globals.currentPage);
           console.log(this.globals);
         }
+        this.isLoaded = true;
       }).catch((err: any) => {}); 
     }
 

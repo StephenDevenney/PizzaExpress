@@ -12,7 +12,6 @@ import { SharedModule } from './shared/modules/sharedModule';
 import { RedirectToComponent } from './shared/components/redirect-to/redirectTo.component';
 import { LoadingService } from './shared/services/loading.service';
 import { MessageService } from 'primeng/api';
-import { LayoutModule } from './layout/layout.module';
 import { DashboardModule } from './modules/dashboard/dashboard.module';
 import { BasketModule } from './modules/basket/basket.module';
 import { OrdersModule } from './modules/orders/orders.module';
@@ -48,7 +47,6 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
   imports: [
     BrowserModule,
     AppRoutingModule,
-    LayoutModule,
     SignInModule,
     DashboardModule,
     BasketModule,
