@@ -21,6 +21,7 @@ export class APIService {
                             this.globals.config.authApiUrl = res.authApiUrl;
                             this.globals.config.securityRedirectUrl = res.securityRedirectUrl;
                             this.globals.config.defaultPage = res.defaultPage;
+                            this.globals.config.basketPage = res.basketPage;
                             this.globals.currentPage = res.defaultPage;
                             
                             if(!this.authService.hasAuthToken()) {

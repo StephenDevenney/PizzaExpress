@@ -8,6 +8,7 @@ export class Config {
     public authApiUrl: string = "";
     public securityRedirectUrl: string = "";
     public defaultPage: NavPage = new NavPage;
+    public basketPage: NavPage = new NavPage;
 }
 
 

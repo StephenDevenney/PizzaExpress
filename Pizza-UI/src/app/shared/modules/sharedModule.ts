@@ -8,26 +8,26 @@ import { ToastModule } from 'primeng/toast'
 import { MessageService } from 'primeng/api';
 import { NgxUiLoaderModule } from 'ngx-ui-loader';
 import { ButtonModule } from 'primeng/button';
-import { PageModule } from 'src/app/layout/page/page.module';
-import { PageComponent } from 'src/app/layout/page/page.component';
+import { RippleModule } from 'primeng/ripple';
+import { LayoutModule } from 'src/app/layout/layout.module';
 
 @NgModule({
   imports: [
     CommonModule,
-    PageModule,
     NgxUiLoaderModule,
-    ButtonModule
+    ButtonModule,
+    LayoutModule
   ],
   declarations: [
     
   ],
   exports: [
-    PageComponent,
     FormsModule,
     BrowserModule,
     BrowserAnimationsModule,
     ToastModule,
-    ButtonModule
+    ButtonModule,
+    LayoutModule
   ],
   providers: [
     Globals,
