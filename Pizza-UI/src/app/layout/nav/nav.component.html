@@ -9,11 +9,15 @@
         </div>
         <div class="nav flex-column pt-2">
             <div *ngFor="let navMenu of navigationMenu; let i = index">
-                <button class="btn btn-nav-link text-left d-flex align-items-center w-100 justify-content-between" (click)="navToPage(navMenu);" title="{{ navMenu.navMenuTitle }}">
+                <button pRipple class="btn btn-nav-link text-left d-flex align-items-center w-100 justify-content-between" (click)="navToPage(navMenu);" title="{{ navMenu.navMenuTitle }}">
                     <span class="mb-1">{{ navMenu.navMenuName }}</span>
                     <i class="pi pi-angle-right"></i>    
                 </button>
             </div>
-        </div>    
+        </div>   
+        <button class="btn btn-nav-link text-left d-flex align-items-center w-100 justify-content-between" (click)="signOut();">
+            <span class="mb-1">Sign Out</span>
+            <i class="pi pi-angle-right"></i> 
+        </button>
     </div>
 </div>

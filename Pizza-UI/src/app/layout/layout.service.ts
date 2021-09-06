@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Globals } from 'src/app/shared/classes/globals';
 
 @Injectable()
-export class PageService {
+export class LayoutService {
 
     constructor(private globals: Globals,
                 private http: HttpClient){}

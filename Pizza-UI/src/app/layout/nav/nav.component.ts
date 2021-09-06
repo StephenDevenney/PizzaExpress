@@ -1,8 +1,9 @@
 import { Component, Injector, OnInit } from '@angular/core';
-import { BaseComponent } from '../../../shared/components/base.component';
-import { PageService } from '../page.service';
+import { BaseComponent } from '../../shared/components/base.component';
+import { LayoutService } from '../layout.service';
 import { NavPage } from 'src/app/shared/classes/nav.page';
 import { SharedService } from 'src/app/shared/services/shared.service';
+import { AuthService } from 'src/app/shared/services/auth.service';
 
 @Component({
   selector: 'nav-bar',
@@ -13,13 +14,14 @@ export class NavComponent extends BaseComponent implements OnInit {
   public navLoaded: boolean = false;
 
   constructor(private injector: Injector,
-    private pageService: PageService,
-    private sharedService: SharedService) {
+    private layoutService: LayoutService,
+    private sharedService: SharedService,
+    private authService: AuthService) {
     super(injector);
    }
 
   async ngOnInit(): Promise<void> {
-    await this.pageService.getNavMenu().then((res: Array<NavPage>) => {
+    await this.layoutService.getNavMenu().then((res: Array<NavPage>) => {
       this.navigationMenu = res;
       this.navLoaded = true;
     }).catch((err: any) => {
@@ -27,7 +29,11 @@ export class NavComponent extends BaseComponent implements OnInit {
     });
   }
 
-  public async navToPage(navMenu: NavPage) {
-    this.sharedService.navToPage(navMenu); 
+  public async navToPage(navMenu: NavPage): Promise<void> {
+    await this.sharedService.navToPage(navMenu); 
+  }
+
+  public async signOut(): Promise<void> {
+    await this.authService.signOut();
   }
 }
