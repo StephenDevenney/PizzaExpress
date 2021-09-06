@@ -37,7 +37,8 @@ $blue-6: #cce6ff;
 $blue-7: #e6f2ff;
 
 // ## General
-$side-nav-w: calc(10vw + 1rem);
+// $side-nav-w: calc(10vw + 1rem);
+$side-nav-w: 10vw;
 $header-h: 6.5rem;
 $heading-h: 3.4rem;
 
@@ -49,14 +50,23 @@ $heading-h: 3.4rem;
     color: $grey-2;
 }
 
+.page-header { 
+    background-color: $grey-7;
+    border-bottom: 1px $grey-5 solid;
+}
+
 // ## Nav Body
 .side-nav-container {
     background-color: $blue-2;
-    .btn {
+    
+    button, button:hover {
         color: $grey-6;
-    }  
-    .nav .ng-star-inserted:hover {
-        background-color: $blue-4;
+    }
+    button:hover {
+        background-color: $blue-1;
+    }
+    button:focus {
+        box-shadow: none !important;
     }
 }
 

@@ -21,6 +21,83 @@
     display: flex;
 }
 
+.page-container {
+    width: 90vw !important;
+}
+
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+
+    &.short {
+        height: 10vh;
+    }
+    &.medium {
+        height: 4.5rem;
+    }
+    &.tall {
+        height: 5.5rem;
+    }
+
+    .pi {
+        font-size: 2rem;
+    }
+}
+
+.page-header-container {
+    width: 50rem;
+    display: flex;
+    align-items: baseline;
+}
+
+.page-header-main {
+    display: grid;
+    grid-template-rows: auto auto;
+    flex-basis: auto;
+    max-width: 25vw;
+    flex-grow: 1;
+    flex-shrink: 0;
+    height: 100%;
+    align-items: center;
+
+    .btn {
+        padding: 0;
+    }
+}
+
+.page-header-title {
+    flex-basis: 45rem;
+    max-width: 25vw;
+    margin: 0;
+}
+
+.page-sub-header {
+    height: 100%;
+    width: 100%;
+    margin-left: 1.5rem;
+    display: grid;
+    grid-template-rows: auto auto;
+}
+
+.page-header-subtitle {
+    font-size: 0.9rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin: 0;
+    padding: 0;
+    width: 22rem;
+    font-weight: bold;
+}
+
+.page-header-content {
+    display: flex-start;
+    align-items: center;
+    width: 100%;
+}
+
 // ## Containers
 .app-container {
     display: grid;
