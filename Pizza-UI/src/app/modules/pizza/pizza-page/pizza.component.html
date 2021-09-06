@@ -1,5 +1,5 @@
-<page *ngIf="isLoaded">
-   <div class="card-container transparent-border mt-2 mb-2">
+<page>
+   <div *ngIf="isLoaded" class="card-container transparent-border mt-2 mb-2">
       <p-dataView #dv [value]="pizzaData" [rows]="9" filterBy="name" layout="grid">
          <ng-template let-pizza pTemplate="gridItem">
             <div class="p-col-12 p-md-4">
@@ -15,11 +15,11 @@
                   </div>
                   <div class="d-flex align-items-center justify-content-between m-2">
                      <label>€{{pizza.price}}</label>
-                     <p-button icon="pi pi-shopping-cart"></p-button>
+                     <p-button pRipple icon="pi pi-shopping-cart"></p-button>
                   </div>
                </div>
             </div>
          </ng-template>
       </p-dataView>
-  </div>
+   </div>
 </page>
