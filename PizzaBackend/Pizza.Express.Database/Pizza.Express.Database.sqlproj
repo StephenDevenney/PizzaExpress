@@ -60,21 +60,23 @@
     <Folder Include="Scripts" />
     <Folder Include="Tables" />
     <Folder Include="Tables\Security" />
-    <Folder Include="Tables\Pizza" />
+    <Folder Include="Tables\Product" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Schemas\security.sql" />
     <Build Include="Tables\Security\Client.sql" />
     <Build Include="Schemas\enum.security.sql" />
-    <Build Include="Tables\Pizza\Order.sql" />
-    <Build Include="Schemas\pizza.sql" />
-    <Build Include="Schemas\enum.pizza.sql" />
-    <Build Include="Tables\Pizza\OrderedPizza.sql" />
-    <Build Include="Tables\Pizza\Enum.Status.sql" />
+    <Build Include="Tables\Product\Order.sql" />
+    <Build Include="Schemas\product.sql" />
+    <Build Include="Schemas\enum.product.sql" />
+    <Build Include="Tables\Product\OrderedProduct.sql" />
+    <Build Include="Tables\Product\Enum.Status.sql" />
     <Build Include="Tables\Security\Enum.ClientRole.sql" />
-    <Build Include="Tables\Pizza\Enum.Pizza.sql" />
+    <Build Include="Tables\Product\Enum.Product.sql" />
     <Build Include="Tables\Security\Enum.NavMenu.sql" />
     <Build Include="Tables\Security\NavMenuRole.sql" />
+    <Build Include="Tables\Product\BasketItems.sql" />
+    <Build Include="Tables\Product\Enum.ProductTypes.sql" />
   </ItemGroup>
   <ItemGroup>
     <PreDeploy Include="Scripts\Script.PreDeployment.sql" />
