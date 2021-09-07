@@ -16,7 +16,8 @@ namespace Pizza.Express.Context
         public DbSet<ClientRoleEntity> ClientRole { get; set; }
         public DbSet<NavMenuEntity> NavMenu { get; set; }
         public DbSet<NavMenuRoleEntity> NavMenuRole { get; set; }
-        public DbSet<PizzaEntity> Pizza { get; set; }
+        public DbSet<ProductEntity> Product { get; set; }
+        public DbSet<ProductTypeEntity> ProductType { get; set; }
         #endregion
 
         #region MODELBUILDER
@@ -26,7 +27,8 @@ namespace Pizza.Express.Context
             modelBuilder.Entity<ClientRoleEntity>(DBUserRole);
             modelBuilder.Entity<NavMenuEntity>(DBNavMenu);
             modelBuilder.Entity<NavMenuRoleEntity>(DBNavMenuRole);
-            modelBuilder.Entity<PizzaEntity>(DBPizza);
+            modelBuilder.Entity<ProductEntity>(DBProduct);
+            modelBuilder.Entity<ProductTypeEntity>(DBProductType);
             base.OnModelCreating(modelBuilder);
         }
         #endregion
@@ -48,15 +50,23 @@ namespace Pizza.Express.Context
             _.Property<string>(x => x.NavMenuTitle).HasColumnName("NavMenuTitle");
             _.Property<string>(x => x.NavMenuRoute).HasColumnName("NavMenuRoute");
         }
-        private void DBPizza(EntityTypeBuilder<PizzaEntity> _)
+        private void DBProduct(EntityTypeBuilder<ProductEntity> _)
         {
-            _.ToTable("Pizza", "enum.pizza");
-            _.HasKey(x => x.PizzaId);
-            _.Property<int>(x => x.PizzaId).HasColumnName("PizzaId");
+            _.ToTable("Product", "enum.product");
+            _.HasKey(x => x.ProductId);
+            _.Property<int>(x => x.ProductId).HasColumnName("ProductId");
+            _.Property<int>(x => x.ProductTypeId).HasColumnName("FK_ProductTypeId");
             _.Property<string>(x => x.Name).HasColumnName("Name");
             _.Property<string>(x => x.Description).HasColumnName("Description");
             _.Property<decimal>(x => x.Price).HasColumnName("Price");
             _.Property<string>(x => x.ImageLink).HasColumnName("ImageLink");
+        }
+        private void DBProductType(EntityTypeBuilder<ProductTypeEntity> _)
+        {
+            _.ToTable("ProductTypes", "enum.product");
+            _.HasKey(x => x.ProductTypeId);
+            _.Property<int>(x => x.ProductTypeId).HasColumnName("ProductTypeId");
+            _.Property<string>(x => x.Name).HasColumnName("Name");
         }
         #endregion
 

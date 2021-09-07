@@ -21,9 +21,16 @@ namespace Pizza.Express.Context
         #endregion
 
         #region GET
-        public async Task<List<PizzaViewModel>> GetPizza()
+        public async Task<List<ProductViewModel>> GetPizza()
         {
-            return await sqlContext.Pizza.Select(res => new PizzaViewModel { Name = res.Name, Description = res.Description, Price = res.Price, ImageLink = res.ImageLink }).ToListAsync();
+            return await sqlContext.Product.Where(pt => pt.ProductTypeId == 1)
+                                            .Select(p => new ProductViewModel
+                                            {
+                                                Name = p.Name,
+                                                Description = p.Description,
+                                                Price = p.Price,
+                                                ImageLink = p.ImageLink
+                                            }).ToListAsync();
         }
         #endregion
 

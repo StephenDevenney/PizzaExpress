@@ -22,7 +22,7 @@ namespace Pizza.Express.API.Controllers
         #region GET
         [Authorize(Roles = SecureRole.Admin + "," + SecureRole.User)]
         [HttpGet("pizza")]
-        public async Task<List<PizzaViewModel>> GetPizza() => await productHandler.GetPizza();
+        public async Task<List<ProductViewModel>> GetPizza() => await productHandler.GetPizza();
         #endregion
 
         #region PUT 

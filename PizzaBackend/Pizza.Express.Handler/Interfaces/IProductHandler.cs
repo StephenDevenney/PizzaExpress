@@ -7,7 +7,7 @@ namespace Pizza.Express.Handler.Interfaces
     public interface IProductHandler
     {
         #region GET
-        public Task<List<PizzaViewModel>> GetPizza();
+        public Task<List<ProductViewModel>> GetPizza();
         #endregion
 
         #region PUT

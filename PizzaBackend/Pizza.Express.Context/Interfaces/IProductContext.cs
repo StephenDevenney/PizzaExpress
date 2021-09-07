@@ -7,7 +7,7 @@ namespace Pizza.Express.Context.Interfaces
     public interface IProductContext
     {
         #region GET
-        public Task<List<PizzaViewModel>> GetPizza();
+        public Task<List<ProductViewModel>> GetPizza();
         #endregion
 
         #region PUT

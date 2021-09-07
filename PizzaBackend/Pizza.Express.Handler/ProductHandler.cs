@@ -20,7 +20,7 @@ namespace Pizza.Express.Handler
         #endregion
 
         #region GET
-        public async Task<List<PizzaViewModel>> GetPizza() => await productRepo.GetPizza();
+        public async Task<List<ProductViewModel>> GetPizza() => await productRepo.GetPizza();
         #endregion
 
         #region PUT
