@@ -1,9 +1,8 @@
 ﻿
-namespace Pizza.Express.Shared.Entities
+namespace Pizza.Express.Shared.ViewModels
 {
-    public class PizzaEntity
+    public class ProductViewModel
     {
-        public int PizzaId { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
         public decimal Price { get; set; }
