@@ -18,6 +18,7 @@ namespace Pizza.Express.Context
         public DbSet<NavMenuRoleEntity> NavMenuRole { get; set; }
         public DbSet<ProductEntity> Product { get; set; }
         public DbSet<ProductTypeEntity> ProductType { get; set; }
+        public DbSet<BasketItemEntity> BasketItem { get; set; }
         #endregion
 
         #region MODELBUILDER
@@ -29,6 +30,7 @@ namespace Pizza.Express.Context
             modelBuilder.Entity<NavMenuRoleEntity>(DBNavMenuRole);
             modelBuilder.Entity<ProductEntity>(DBProduct);
             modelBuilder.Entity<ProductTypeEntity>(DBProductType);
+            modelBuilder.Entity<BasketItemEntity>(DBBasketItems);
             base.OnModelCreating(modelBuilder);
         }
         #endregion
@@ -86,6 +88,18 @@ namespace Pizza.Express.Context
             _.Property<int>(x => x.NavMenuRoleId).HasColumnName("NavMenuRoleId");
             _.Property<int>(x => x.NavMenuId).HasColumnName("FK_NavMenuId");
             _.Property<int>(x => x.ClientRoleId).HasColumnName("FK_ClientRoleId");
+        }
+        #endregion
+
+        #region BASKET
+        private void DBBasketItems(EntityTypeBuilder<BasketItemEntity> _)
+        {
+            _.ToTable("BasketItems", "product");
+            _.HasKey(x => x.BasketItemId);
+            _.Property<int>(x => x.BasketItemId).HasColumnName("BasketItemId");
+            _.Property<int>(x => x.ClientId).HasColumnName("FK_ClientId");
+            _.Property<int>(x => x.ProductId).HasColumnName("FK_ProductId");
+            _.Property<int>(x => x.ProductCount).HasColumnName("ProductCount");
         }
         #endregion
     }
