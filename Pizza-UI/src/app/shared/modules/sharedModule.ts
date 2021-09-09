@@ -7,19 +7,21 @@ import { ToastModule } from 'primeng/toast'
 import { MessageService } from 'primeng/api';
 import { NgxUiLoaderModule } from 'ngx-ui-loader';
 import { ButtonModule } from 'primeng/button';
-import { RippleModule } from 'primeng/ripple';
 import { LayoutModule } from 'src/app/layout/layout.module';
 import { Globals } from '../classes/configuration/globals';
+import { DataViewModule } from 'primeng/dataview';
+import { BasketPricePipe } from '../pipes/pipes';
 
 @NgModule({
   imports: [
     CommonModule,
     NgxUiLoaderModule,
     ButtonModule,
-    LayoutModule
+    LayoutModule,
+    DataViewModule
   ],
   declarations: [
-    
+    BasketPricePipe
   ],
   exports: [
     FormsModule,
@@ -27,11 +29,14 @@ import { Globals } from '../classes/configuration/globals';
     BrowserAnimationsModule,
     ToastModule,
     ButtonModule,
-    LayoutModule
+    LayoutModule,
+    DataViewModule,
+    BasketPricePipe
   ],
   providers: [
     Globals,
-    MessageService
+    MessageService,
+    BasketPricePipe
   ]
 })
 export class SharedModule { 
