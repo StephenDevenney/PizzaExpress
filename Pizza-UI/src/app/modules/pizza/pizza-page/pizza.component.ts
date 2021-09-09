@@ -1,6 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, Injector, OnInit } from '@angular/core';
-import { Pizza } from 'src/app/shared/classes/products';
+import { Product } from '../../../shared/classes/products/products';
 import { BaseComponent } from 'src/app/shared/components/base.component';
 import { PizzaService } from '../pizza.service';
 
@@ -11,7 +11,7 @@ import { PizzaService } from '../pizza.service';
 export class PizzaComponent extends BaseComponent implements OnInit {
   
   public isLoaded: boolean = false;
-  public pizzaData: Array<Pizza> = new Array<Pizza>();
+  public pizzaData: Array<Product> = new Array<Product>();
   constructor(private injector: Injector,
               private pizzaService: PizzaService) {
     super(injector);
@@ -25,7 +25,7 @@ export class PizzaComponent extends BaseComponent implements OnInit {
     this.loader.start();
     await this.pizzaService.getPizza().catch((err: HttpErrorResponse) => {
       this.loader.stop();
-    }).then(async (res: Array<Pizza>) => {
+    }).then(async (res: Array<Product>) => {
       this.pizzaData = res;
       this.loader.stop();
       this.isLoaded = true;

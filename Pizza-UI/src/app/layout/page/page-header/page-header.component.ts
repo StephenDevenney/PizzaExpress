@@ -1,9 +1,7 @@
 import { Component, Injector, Input, OnInit } from '@angular/core';
 import { HeaderType } from '../enums/header-type';
 import { BaseComponent } from '../../../shared/components/base.component';
-import { NavPage } from '../../../shared/classes/nav.page';
-import { SharedService } from 'src/app/shared/services/shared.service';
-import { TestBed } from '@angular/core/testing';
+import { SharedService } from '../../../shared/services/shared.service';
 
 @Component({
   selector: 'page-header',

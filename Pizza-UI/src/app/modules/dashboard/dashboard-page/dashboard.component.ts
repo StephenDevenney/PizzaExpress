@@ -1,6 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, Injector, OnInit } from '@angular/core';
-import { BaseComponent } from 'src/app/shared/components/base.component';
+import { BaseComponent } from '../../../shared/components/base.component';
 import { DashboardService } from '../dashboard.service';
 
 @Component({

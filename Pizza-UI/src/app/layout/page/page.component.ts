@@ -1,5 +1,5 @@
-import { Component, ContentChild, ElementRef, Injector, OnInit, ViewChild } from '@angular/core';
-import { BaseComponent } from 'src/app/shared/components/base.component';
+import { Component, ElementRef, Injector, OnInit, ViewChild } from '@angular/core';
+import { BaseComponent } from '../../shared/components/base.component';
 
 @Component({
   selector: 'page',

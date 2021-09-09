@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Globals } from 'src/app/shared/classes/globals';
+import { Globals } from '../../shared/classes/configuration/globals';
 
 @Injectable()
 export class BasketService {

@@ -1,10 +1,10 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, Injector, OnInit } from '@angular/core';
-import { Client } from 'src/app/shared/classes/client';
-import { BaseComponent } from 'src/app/shared/components/base.component';
-import { APIService } from 'src/app/shared/services/api.service';
-import { AuthService } from 'src/app/shared/services/auth.service';
-import { SharedService } from 'src/app/shared/services/shared.service';
+import { Client } from '../../../shared/classes/configuration/client';
+import { BaseComponent } from '../../../shared/components/base.component';
+import { APIService } from '../../../shared/services/api.service';
+import { AuthService } from '../../../shared/services/auth.service';
+import { SharedService } from '../../../shared/services/shared.service';
 import { SignInService } from '../signin.service';
 
 @Component({

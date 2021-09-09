@@ -1,9 +1,9 @@
 import { Component, Injector, OnInit } from '@angular/core';
 import { BaseComponent } from '../../shared/components/base.component';
 import { LayoutService } from '../layout.service';
-import { NavPage } from 'src/app/shared/classes/nav.page';
-import { SharedService } from 'src/app/shared/services/shared.service';
-import { AuthService } from 'src/app/shared/services/auth.service';
+import { NavPage } from '../../shared/classes/configuration/nav.page';
+import { SharedService } from '../../shared/services/shared.service';
+import { AuthService } from '../../shared/services/auth.service';
 
 @Component({
   selector: 'nav-bar',
