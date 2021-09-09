@@ -4,7 +4,6 @@ import { RouterModule } from '@angular/router';
 import { SharedModule } from '../../shared/modules/sharedModule';
 import { PizzaComponent } from './pizza-page/pizza.component';
 import { PizzaService } from './pizza.service';
-import { DataViewModule } from 'primeng/dataview';
 
 @NgModule({
   declarations: [
@@ -12,8 +11,7 @@ import { DataViewModule } from 'primeng/dataview';
   ],
   imports: [
     CommonModule,
-    SharedModule,
-    DataViewModule
+    SharedModule
   ],
   exports: [
     RouterModule
