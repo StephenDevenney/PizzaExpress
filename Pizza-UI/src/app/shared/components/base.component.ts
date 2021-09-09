@@ -1,9 +1,9 @@
 import { inject, Injector } from '@angular/core';
 import { Location } from '@angular/common';
 import { Router } from '@angular/router';
-import { Globals } from '../classes/globals';
 import { MessageService } from 'primeng/api';
 import { LoadingService } from '../services/loading.service';
+import { Globals } from '../classes/configuration/globals';
 
 export class BaseComponent {
     public globals: Globals;

@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
-import { Globals } from './shared/classes/globals';
 import { APIService } from './shared/services/api.service';
 import { AuthService } from './shared/services/auth.service';
 import { SharedService } from './shared/services/shared.service';
 import { PrimeNGConfig } from 'primeng/api';
+import { Globals } from './shared/classes/configuration/globals';
 
 @Component({
   selector: 'app-root',

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Globals } from '../../classes/globals';
 import { HttpClient } from '@angular/common/http';
+import { Globals } from '../../classes/configuration/globals';
 
 @Component({
   selector: 'redirectTo',

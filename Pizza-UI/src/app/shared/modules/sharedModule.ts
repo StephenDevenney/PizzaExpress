@@ -1,6 +1,5 @@
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Globals } from '../classes/globals';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
@@ -10,6 +9,7 @@ import { NgxUiLoaderModule } from 'ngx-ui-loader';
 import { ButtonModule } from 'primeng/button';
 import { RippleModule } from 'primeng/ripple';
 import { LayoutModule } from 'src/app/layout/layout.module';
+import { Globals } from '../classes/configuration/globals';
 
 @NgModule({
   imports: [

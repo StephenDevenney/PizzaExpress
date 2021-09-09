@@ -5,7 +5,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgxUiLoaderModule, NgxUiLoaderConfig, POSITION, SPINNER, PB_DIRECTION } from 'ngx-ui-loader';
-import { APIInterceptor } from './shared/classes/api.interceptor';
+import { APIInterceptor } from './shared/classes/configuration/api.interceptor';
 import { AuthService } from './shared/services/auth.service';
 import { APIService } from './shared/services/api.service';
 import { SharedModule } from './shared/modules/sharedModule';

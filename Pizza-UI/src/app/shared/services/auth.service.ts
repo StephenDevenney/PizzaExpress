@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
-import { Globals } from '../classes/globals';
-import { NavPage } from '../classes/nav.page';
+import { Globals } from '../classes/configuration/globals';
+import { NavPage } from '../classes/configuration/nav.page';
 
 @Injectable()
 export class AuthService {

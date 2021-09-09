@@ -1,10 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, switchMap } from 'rxjs/operators';
-import { Globals } from '../classes/globals';
-import { Config } from '../classes/config';
+import { Config } from '../classes/configuration/config';
+import { Globals } from '../classes/configuration/globals';
 import { AuthService } from './auth.service';
-import { Client } from '../classes/client';
 
 @Injectable()
 export class APIService {
