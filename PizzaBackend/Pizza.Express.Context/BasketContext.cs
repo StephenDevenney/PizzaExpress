@@ -5,7 +5,6 @@ using Pizza.Express.Context.Interfaces;
 using Pizza.Express.Shared.ViewModels;
 using Microsoft.EntityFrameworkCore;
 using Pizza.Express.Shared.Entities;
-using System;
 
 namespace Pizza.Express.Context
 {
@@ -32,7 +31,8 @@ namespace Pizza.Express.Context
                 product => product.ProductId,
                 (basketItem, product) => new BasketItemViewModel
                 {
-                    Product = new ProductViewModel 
+                    BasketId = basketItem.BasketItemId,
+                    ProductItem = new ProductViewModel 
                     { 
                         ProductId = product.ProductId, 
                         Name = product.Name, 
@@ -49,7 +49,7 @@ namespace Pizza.Express.Context
         public async Task<List<BasketItemViewModel>> UpdateBasketItem(BasketItemViewModel basketItem)
         {
             BasketItemEntity basketItemToUpdate = await this.FindBasketItem(basketItem);
-            basketItemToUpdate.ProductId = basketItem.Product.ProductId;
+            basketItemToUpdate.ProductId = basketItem.ProductItem.ProductId;
             basketItemToUpdate.ProductCount = basketItem.ProductCount;
             this.sqlContext.Attach(basketItemToUpdate);
             await this.sqlContext.SaveChangesAsync();
@@ -58,19 +58,17 @@ namespace Pizza.Express.Context
         #endregion
 
         #region POST
-        public async Task<List<BasketItemViewModel>> AddItemToBasket(BasketItemViewModel basketItem)
+        public async Task AddItemToBasket(BasketItemViewModel basketItem)
         {
             ClientEntity client = await this.globals.GetCurrentClient();
             BasketItemEntity basketItemToAdd = new BasketItemEntity
             {
                 ClientId = client.ClientId,
-                ProductId = basketItem.Product.ProductId,
+                ProductId = basketItem.ProductItem.ProductId,
                 ProductCount = basketItem.ProductCount
             };
             await this.sqlContext.BasketItem.AddAsync(basketItemToAdd);
             await this.sqlContext.SaveChangesAsync();
-
-            return await this.GetBasket();
         }
         #endregion
 

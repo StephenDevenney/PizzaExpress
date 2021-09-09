@@ -28,7 +28,7 @@ namespace Pizza.Express.Handler
         #endregion
 
         #region POST
-        public async Task<List<BasketItemViewModel>> AddItemToBasket(BasketItemViewModel basketItem) => await basketRepo.AddItemToBasket(basketItem);
+        public async Task AddItemToBasket(BasketItemViewModel basketItem) => await basketRepo.AddItemToBasket(basketItem);
         #endregion
 
         #region DELETE

@@ -26,6 +26,7 @@ namespace Pizza.Express.Context
             return await sqlContext.Product.Where(pt => pt.ProductTypeId == 1)
                                             .Select(p => new ProductViewModel
                                             {
+                                                ProductId = p.ProductId,
                                                 Name = p.Name,
                                                 Description = p.Description,
                                                 Price = p.Price,

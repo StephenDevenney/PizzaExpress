@@ -15,7 +15,7 @@ namespace Pizza.Express.Context.Interfaces
         #endregion
 
         #region POST
-        public Task<List<BasketItemViewModel>> AddItemToBasket(BasketItemViewModel basketItem);
+        public Task AddItemToBasket(BasketItemViewModel basketItem);
         #endregion
 
         #region DELETE

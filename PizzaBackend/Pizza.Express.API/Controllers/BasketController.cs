@@ -34,10 +34,10 @@ namespace Pizza.Express.API.Controllers
         #region POST
         [Authorize(Roles = SecureRole.Admin + "," + SecureRole.User)]
         [HttpPost("add-product")]
-        public async Task<List<BasketItemViewModel>> AddItemToBasket([FromBody] BasketItemViewModel basketItem) => await basketHandler.AddItemToBasket(basketItem);
+        public async Task AddItemToBasket([FromBody] BasketItemViewModel basketItem) => await basketHandler.AddItemToBasket(basketItem);
         #endregion
 
-        #region POST
+        #region DELETE
         [Authorize(Roles = SecureRole.Admin + "," + SecureRole.User)]
         [HttpDelete("remove-product")]
         public async Task DeleteItemFromBasket([FromBody] BasketItemViewModel basketItem) => await basketHandler.DeleteItemFromBasket(basketItem);
