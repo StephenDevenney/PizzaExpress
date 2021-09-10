@@ -47,12 +47,13 @@ export class BasketComponent extends BaseComponent implements OnInit {
   }
 
   public async confirmOrder() {
-    this.loader.start();
+    this.loader.startBackground();
     await this.basketService.confirmOrder(this.basketData).then(() => {
       this.basketData = new Array<BasketItem>();
-      this.loader.stop();
+      this.loader.stopBackground();
+      this.messageService.add({ severity:'success', summary: 'Pizza Ordered', detail: 'Your food is being processed.', life: 2600 });
     }).catch((err: HttpErrorResponse) => {
-      this.loader.stop();
+      this.loader.stopBackground();
     });
   }
 }

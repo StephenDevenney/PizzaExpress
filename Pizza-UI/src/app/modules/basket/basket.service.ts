@@ -18,6 +18,6 @@ export class BasketService {
     } 
     
     public async confirmOrder(basket: Array<BasketItem>): Promise<any> {
-        return await this.http.put(this.globals.config.appApiUrl + "basket/confirmOrder", JSON.stringify(basket)).toPromise();
+        return await this.http.post(this.globals.config.appApiUrl + "order/create-order", JSON.stringify(basket)).toPromise();
     } 
 }
