@@ -8,5 +8,7 @@ export class OrdersService {
     constructor(private globals: Globals,
                 private http: HttpClient){}
                 
-                
+    public async getOrders(): Promise<any> {
+        return await this.http.get(this.globals.config.appApiUrl + "order/order-list").toPromise();
+    }          
 }
