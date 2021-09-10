@@ -11,12 +11,9 @@ namespace Pizza.Express.Context
     {
         #region CONSTRUCTOR
         private readonly SqlContext sqlContext;
-        private readonly IGlobals globals;
-        public ProductContext(IGlobals _globals,
-                                SqlContext _sqlRepo)
+        public ProductContext(SqlContext _sqlRepo)
         {
             this.sqlContext = _sqlRepo;
-            this.globals = _globals;
         }
         #endregion
 

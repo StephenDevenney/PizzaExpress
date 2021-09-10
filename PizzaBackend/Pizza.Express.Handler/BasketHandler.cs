@@ -10,12 +10,9 @@ namespace Pizza.Express.Handler
     {
         #region CONSTRUCTOR
         private readonly IBasketContext basketRepo;
-        private readonly IGlobals globals;
-        public BasketHandler(IGlobals _globals, 
-                                IBasketContext basketRepo)
+        public BasketHandler(IBasketContext basketRepo)
         {
             this.basketRepo = basketRepo;
-            this.globals = _globals;
         }
         #endregion
 

@@ -10,12 +10,9 @@ namespace Pizza.Express.Handler
     {
         #region CONSTRUCTOR
         private readonly IOrderContext orderRepo;
-        private readonly IGlobals globals;
-        public OrderHandler(IGlobals _globals, 
-                                IOrderContext orderRepo)
+        public OrderHandler(IOrderContext orderRepo)
         {
             this.orderRepo = orderRepo;
-            this.globals = _globals;
         }
         #endregion
 

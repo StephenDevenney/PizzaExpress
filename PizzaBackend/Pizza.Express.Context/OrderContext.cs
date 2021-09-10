@@ -25,6 +25,11 @@ namespace Pizza.Express.Context
         #region GET
         public async Task<List<OrderViewModel>> GetOrderList()
         {
+            /*
+                If I was going to continue working on this project, 
+                I'd split this function up into different methods handled in the OrderHandler service.
+            */
+
             ClientEntity client = await this.globals.GetCurrentClient();
             List<OrderViewModel> orders = await sqlContext.Order.Where(c => c.ClientId == client.ClientId)
                     .Join(sqlContext.OrderStatus,
@@ -87,6 +92,11 @@ namespace Pizza.Express.Context
         #region POST
         public async Task CreateOrder(List<BasketItemViewModel> basket)
         {
+            /*
+                If I was going to continue working on this project, 
+                I'd split this function up into different methods handled in the OrderHandler service.
+            */
+
             ClientEntity client = await this.globals.GetCurrentClient();
             OrderEntity orderToCreate = new OrderEntity
             {

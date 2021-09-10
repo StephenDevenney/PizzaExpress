@@ -26,7 +26,7 @@ namespace Pizza.Express.API.Controllers
         #endregion
 
         #region PUT 
-        [Authorize(Roles = SecureRole.Admin + "," + SecureRole.User)]
+        [Authorize(Roles = SecureRole.Admin)]
         [HttpPut("order-status")]
         public async Task UpdateOrderStatus([FromBody] OrderViewModel order) => await orderHandler.UpdateOrderStatus(order);
         #endregion
