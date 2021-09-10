@@ -81,6 +81,8 @@ namespace Pizza.Express.API
             services.AddScoped<IProductContext, ProductContext>();
             services.AddScoped<IBasketHandler, BasketHandler>();
             services.AddScoped<IBasketContext, BasketContext>();
+            services.AddScoped<IOrderHandler, OrderHandler>();
+            services.AddScoped<IOrderContext, OrderContext>();
             #endregion
 
             #region CORS

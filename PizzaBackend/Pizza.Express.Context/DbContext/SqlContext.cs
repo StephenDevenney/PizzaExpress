@@ -19,6 +19,9 @@ namespace Pizza.Express.Context
         public DbSet<ProductEntity> Product { get; set; }
         public DbSet<ProductTypeEntity> ProductType { get; set; }
         public DbSet<BasketItemEntity> BasketItem { get; set; }
+        public DbSet<OrderEntity> Order { get; set; }
+        public DbSet<OrderedProductEntity> OrderedProduct { get; set; }
+        public DbSet<OrderStatusEntity> OrderStatus { get; set; }
         #endregion
 
         #region MODELBUILDER
@@ -29,8 +32,11 @@ namespace Pizza.Express.Context
             modelBuilder.Entity<NavMenuEntity>(DBNavMenu);
             modelBuilder.Entity<NavMenuRoleEntity>(DBNavMenuRole);
             modelBuilder.Entity<ProductEntity>(DBProduct);
-            modelBuilder.Entity<ProductTypeEntity>(DBProductType);
+            modelBuilder.Entity<ProductTypeEntity>(DBProductType); 
             modelBuilder.Entity<BasketItemEntity>(DBBasketItems);
+            modelBuilder.Entity<OrderEntity>(DBOrder);
+            modelBuilder.Entity<OrderedProductEntity>(DBOrderedProducts);
+            modelBuilder.Entity<OrderStatusEntity>(DBOrderStatus);
             base.OnModelCreating(modelBuilder);
         }
         #endregion
@@ -70,6 +76,13 @@ namespace Pizza.Express.Context
             _.Property<int>(x => x.ProductTypeId).HasColumnName("ProductTypeId");
             _.Property<string>(x => x.Name).HasColumnName("Name");
         }
+        private void DBOrderStatus(EntityTypeBuilder<OrderStatusEntity> _)
+        {
+            _.ToTable("Status", "enum.product");
+            _.HasKey(x => x.StatusId);
+            _.Property<int>(x => x.StatusId).HasColumnName("StatusId");
+            _.Property<string>(x => x.Description).HasColumnName("Description");
+        }
         #endregion
 
         #region SECURITY
@@ -98,6 +111,27 @@ namespace Pizza.Express.Context
             _.HasKey(x => x.BasketItemId);
             _.Property<int>(x => x.BasketItemId).HasColumnName("BasketItemId");
             _.Property<int>(x => x.ClientId).HasColumnName("FK_ClientId");
+            _.Property<int>(x => x.ProductId).HasColumnName("FK_ProductId");
+            _.Property<int>(x => x.ProductCount).HasColumnName("ProductCount");
+        }
+        #endregion
+
+        #region ORDER
+        private void DBOrder(EntityTypeBuilder<OrderEntity> _)
+        {
+            _.ToTable("Order", "product");
+            _.HasKey(x => x.OrderId);
+            _.Property<int>(x => x.OrderId).HasColumnName("OrderId");
+            _.Property<int>(x => x.ClientId).HasColumnName("FK_ClientId");
+            _.Property<int>(x => x.StatusId).HasColumnName("FK_StatusId");
+            _.Property<string>(x => x.OrderCode).HasColumnName("OrderCode");
+        }
+        private void DBOrderedProducts(EntityTypeBuilder<OrderedProductEntity> _)
+        {
+            _.ToTable("OrderedProducts", "product");
+            _.HasKey(x => x.OrderedProductId);
+            _.Property<int>(x => x.OrderedProductId).HasColumnName("OrderedProductId");
+            _.Property<int>(x => x.OrderId).HasColumnName("FK_OrderId");
             _.Property<int>(x => x.ProductId).HasColumnName("FK_ProductId");
             _.Property<int>(x => x.ProductCount).HasColumnName("ProductCount");
         }
